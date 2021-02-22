@@ -2,9 +2,9 @@
 
 use Bitrix\Main\ModuleManager;
 
-class lbfb_les extends CModule
+class lb4b_les extends CModule
 {
-    public $MODULE_ID = "lbfb.les";
+    public $MODULE_ID = "lb4b.les";
     public $MODULE_VERSION;
     public $MODULE_VERSION_DATE;
     public $MODULE_NAME;
