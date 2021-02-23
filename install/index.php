@@ -1,10 +1,13 @@
 <?php
 
+include_once(__DIR__ . '/../lib/module.php');
+
+use LB4B\LES\Module;
 use Bitrix\Main\ModuleManager;
 
 class lb4b_les extends CModule
 {
-    public $MODULE_ID = "lb4b.les";
+    public $MODULE_ID;
     public $MODULE_VERSION;
     public $MODULE_VERSION_DATE;
     public $MODULE_NAME;
@@ -15,16 +18,14 @@ class lb4b_les extends CModule
 
     public function __construct()
     {
-        $arModuleVersion = array();
-        include('version.php');
+        $this->MODULE_ID = Module::MODULE_ID;
+        $this->MODULE_VERSION = Module::MODULE_VERSION;
+        $this->MODULE_VERSION_DATE = Module::MODULE_VERSION_DATE;
+        $this->MODULE_NAME = Module::MODULE_NAME;
+        $this->MODULE_DESCRIPTION = Module::MODULE_DESCRIPTION;
 
-        $this->MODULE_VERSION = $arModuleVersion['VERSION'];
-        $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
-        $this->MODULE_NAME = 'Laravel Event System';
-        $this->MODULE_DESCRIPTION = 'Brings Laravel event system beauties to Bitrix';
-
-        $this->PARTNER_NAME = 'Laravel Beauties For Bitrix';
-        $this->PARTNER_URI = 'https://github.com/petrenko-alex';
+        $this->PARTNER_NAME = Module::PARTNER_NAME;
+        $this->PARTNER_URI = Module::PARTNER_URI;
     }
 
     public function DoInstall()
