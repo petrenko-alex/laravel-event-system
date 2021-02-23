@@ -25,3 +25,5 @@
 8. [-] Классы для событий
 
 9. [-] Сортировка обработчиков
+
+10. [-] Namings in EventServiceProvider (events -> listeners)
