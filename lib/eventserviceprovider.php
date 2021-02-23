@@ -3,9 +3,9 @@
 namespace LB4B\LES;
 
 use LB4B\LES\Listeners;
-use Bitrix\Main\EventManager;
+use LB4B\LES\Internal\EventServiceProvider as ServiceProvider;
 
-class EventServiceProvider
+class EventServiceProvider extends ServiceProvider
 {
     protected $listeners = [
         'main' => [
@@ -14,26 +14,4 @@ class EventServiceProvider
             ],
         ],
     ];
-
-    public function getListeners(): array
-    {
-        return $this->listeners;
-    }
-
-    public function register(): void
-    {
-        $eventManager = EventManager::getInstance();
-
-        foreach ($this->getListeners() as $moduleName => $moduleEvents) {
-            foreach ($moduleEvents as $eventName => $eventListeners) {
-                foreach (array_unique($eventListeners) as $listener) {
-                    $eventManager->addEventHandler(
-                        $moduleName,
-                        $eventName,
-                        [$listener, 'handle']
-                    );
-                }
-            }
-        }
-    }
 }
